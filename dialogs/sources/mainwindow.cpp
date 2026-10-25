@@ -103,6 +103,9 @@ void MainWindow::on_pushButton_save_clicked()
 {
     QVector<QString>qml_imports = {"import QtQuick 2.5"};
     save_path = QFileDialog::getExistingDirectory();
+    if (save_path.isEmpty()) {
+        return;
+    }
     QString contents_path = save_path +"/contents";
     QString splash_path = contents_path + "/splash";
     QString images_path = splash_path + "/images/";
